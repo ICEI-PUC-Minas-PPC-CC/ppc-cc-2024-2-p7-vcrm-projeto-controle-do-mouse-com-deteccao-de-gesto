@@ -1,42 +1,78 @@
-# TÍTULO DO PROJETO
+# Trabalho de Visão Computacional
 
-`PPC-CC: PUC Poços de Caldas - Ciência da Computação`
-`Disciplina: NOME DA DISCIPLINA`
-`2021 - Semestre 1`
+Implementação do trabalho de Visão Computacional
 
-## Integrantes
+## Requisitos
 
-- Jeff Bezos
-- Bill Gates
-- Larry Ellison
-- Mark Zuckerberg
+| Nome | Versão |
+-------|---------
+Python | `3.12.2`
 
-## Professor
+## Instalação
 
-- Mestre Yoda
+- Inicie um ambiente virtual:
 
-# Documentação
+    ```sh
+    python3.12 -m venv venv
+    ```
 
-<ol>
-<li><a href="docs/1-Documentação de Contexto.md"> Documentação de Contexto</a></li>
-<li><a href="docs/2-Especificação do Projeto.md"> Especificação do Projeto</a></li>
-<li><a href="docs/3-Projeto de Interface.md"> Projeto de Interface</a></li>
-<li><a href="docs/4-Metodologia.md"> Metodologia</a></li>
-<li><a href="docs/5-Arquitetura da Solução.md"> Arquitetura da Solução</a></li>
-<li><a href="docs/6-Template padrão do Site.md"> Template padrão do Site</a></li>
-<li><a href="docs/7-Programação de Funcionalidades.md"> Programação de Funcionalidades</a></li>
-<li><a href="docs/8-Plano de Testes de Software.md"> Plano de Testes de Software</a></li>
-<li><a href="docs/9-Registro de Testes de Software.md"> Registro de Testes de Software</a></li>
-<li><a href="docs/10-Plano de Testes de Usabilidade.md"> Plano de Testes de Usabilidade</a></li>
-<li><a href="docs/11-Registro de Testes de Usabilidade.md"> Registro de Testes de Usabilidade</a></li>
-<li><a href="docs/12-Apresentação do Projeto.md"> Apresentação do Projeto</a></li>
-<li><a href="docs/13-Referências.md"> Referências</a></li>
-</ol>
+- Ative o ambiente virtual:
 
-# Código
+    ```sh
+    source venv/bin/activate
+    ```
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+- Instale as dependências:
 
-# Apresentação
+    ```sh
+    pip install -r ./requirements.txt
+    ```
 
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+## Execução
+
+Execute a aplicação com:
+
+```sh
+python main.py
+```
+
+## API
+
+Antes de executar o projeto chamando a API, siga os passos na [Instalação](#instalação).
+
+- Em um terminal, inicie o servido:
+
+    ```sh
+    python api.py
+    ```
+
+- Em outro terminal, inicie o cliente:
+
+    ```sh
+    python client.py
+    ```
+
+## Diferença
+
+Ao executar um cliente, que chama a API, o funcionamento será o mesmo que a versão sem API.
+A diferença está na implementação. A versão sem API é um programa rodando localmente que:
+
+- Captura a imagem da câmera
+- Realiza o reconhecimento da mão e dos gestos
+- Calcula se o mouse deve mover ou clicar com um dos botões
+- Executa as ações do mouse
+
+A versão que chama a API funciona da seguinte forma:
+
+### Cliente
+
+- Captura a imagem da câmera
+- Envia a imagem para a API
+- Executa as ações do mouse, de acordo com a resposta da API
+
+### API
+
+- Recebe a imagem
+- Realiza o reconhecimento da mão e dos gestos
+- Calcula se o mouse deve mover ou clicar com um dos botões
+- Envia a resposta para o cliente executar
